@@ -2,7 +2,7 @@
   <div class="home">
    <p>Homepage</p>
   </div>
-  <button></button>
+  
 </template>
 
 <script>
