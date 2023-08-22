@@ -5,7 +5,7 @@
             
             <h1><router-link :to=" {name: 'home'}">Castle Journal</router-link></h1>
             <div class="links">
-                <button > Logout </button>
+                <button @click="handleClick" class="btn" :to="{  name: 'login'}"> Logout </button>
                 <router-link class="btn" :to="{  name: 'signup'}"> Signup </router-link>
                 <router-link class="btn" :to= "{ name: 'login'}"> Login </router-link>
             </div>
@@ -15,6 +15,27 @@
 
 <script >
 
+import { ref } from 'vue'
+import useLogout from '../composables/useLogout'
+import { useRouter } from 'vue-router'
+
+export default {    
+    setup () {
+      
+      const { logout } = useLogout()
+      const router = useRouter()
+
+        const handleClick = async () => {
+            await logout()          
+            console.log("logout succesful")
+            router.push( { name: 'login' } )
+            
+        }
+
+        return {  handleClick,  logout  }
+    }
+
+}
 </script>
 
 <style scoped>
