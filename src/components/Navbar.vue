@@ -4,10 +4,18 @@
             <img src="../assets/castle.png" alt="Castle Icon created by Freepik - Flaticon" >
             
             <h1><router-link :to=" {name: 'home'}">Castle Journal</router-link></h1>
+            
             <div class="links">
-                <button @click="handleClick" class="btn" :to="{  name: 'login'}"> Logout </button>
-                <router-link class="btn" :to="{  name: 'signup'}"> Signup </router-link>
-                <router-link class="btn" :to= "{ name: 'login'}"> Login </router-link>
+
+                <div v-if="user"> 
+                    <button @click="handleClick" class="btn" :to="{  name: 'login'}"> Logout </button>
+                </div>
+                <div v-else>
+
+                    <router-link class="btn" :to="{  name: 'signup'}"> Signup </router-link>
+                    <router-link class="btn" :to= "{ name: 'login'}"> Log in </router-link>
+
+                </div>
             </div>
         </nav>
     </div>
@@ -17,11 +25,13 @@
 
 import { ref } from 'vue'
 import useLogout from '../composables/useLogout'
+import getUser from '../composables/getUser'
 import { useRouter } from 'vue-router'
 
 export default {    
     setup () {
       
+      const { user } = getUser()  
       const { logout } = useLogout()
       const router = useRouter()
 
@@ -32,7 +42,7 @@ export default {
             
         }
 
-        return {  handleClick,  logout  }
+        return {  handleClick,  logout, user  }
     }
 
 }
