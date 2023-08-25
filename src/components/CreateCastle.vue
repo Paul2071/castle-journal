@@ -8,9 +8,9 @@
 
 
         <label>Upload Castle Image</label>
-        <input type="file">
+        <input type="file" @change="handleChange">
 
-        <div class="error"></div>
+        <div class="error"> {{ fileError }}</div>
 
         <button>Create</button>
 
@@ -32,12 +32,36 @@ export default {
         const title = ref('')
         const location = ref('')
         const description = ref('')
+        const file = ref(null)
+        const fileError = ref(null)
+
+        //allowed types of files
+
+        const types = ["image/png", "image/jpeg"]
 
         const handleSubmit = () => {
-            console.log(title.value, description.value, location.value)
+            if (file.value){
+                console.log(title.value, description.value, location.value, file.value)
+            }
         }
 
-        return { title, location, description, handleSubmit } 
+
+
+        const handleChange = (e) => {
+          const selected =  e.target.files[0]
+        
+
+            if(selected && types.includes(selected.type) ) {
+                file.value = selected
+                fileError.value = null
+            } else {
+                file.value = null
+                fileError.value = "jpeg or png file please :)"
+            }
+
+        }
+
+        return { title, location, description, file, fileError, handleSubmit, handleChange } 
     }
 }
 
