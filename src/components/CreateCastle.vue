@@ -1,14 +1,17 @@
 <template>
-    <form>
+    <form @submit.prevent="handleSubmit">
 
         <h4>Create Castle Entry</h4>
         <input type="text" required placeholder="Name of castle" v-model="title">
         <input required placeholder="Castle location" v-model="location">
+        <textarea v-model="description" placeholder="notes"></textarea>
 
-        <textarea v-model="description"></textarea>
 
-        <label>Castle Image</label>
+        <label>Upload Castle Image</label>
         <input type="file">
+
+        <div class="error"></div>
+
         <button>Create</button>
 
     </form>
@@ -21,6 +24,7 @@
 import { ref } from 'vue'
 
 
+
 export default {
 
 
@@ -29,10 +33,30 @@ export default {
         const location = ref('')
         const description = ref('')
 
-        return { title, location, description}
+        const handleSubmit = () => {
+            console.log(title.value, description.value, location.value)
+        }
+
+        return { title, location, description, handleSubmit } 
     }
 }
 
 </script>
 
-<style ></style>
+<style>
+    input[type="file"] {
+        border: 0;
+        padding: 0;
+    }
+    label {
+        font-size: 14px;
+        font-weight: bold;
+        display: block;
+        margin-top: 30px
+    }
+    button {
+        margin-top: 20px;
+        margin-bottom: 20px
+    }
+    
+</style>
