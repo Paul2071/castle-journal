@@ -1,0 +1,9 @@
+path: '/castle/create',
+path: '/signup'
+path: '/login'
+
+firebase path for storage  in useStorage()
+filePath.value = `castleimage/${user.value.uid}/${file.name}
+
+CreateCastle component
+each entry will be in 'castlejournal' document folder on firebase
