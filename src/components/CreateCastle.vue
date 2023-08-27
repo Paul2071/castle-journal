@@ -22,13 +22,17 @@
 <script >
 
 import { ref } from 'vue'
+import useStorage from '../composables/useStorage'
 
 
 
 export default {
 
-
     setup() {
+        //upload image composable
+        const {filePath, url, uploadImage } = useStorage()
+
+
         const title = ref('')
         const location = ref('')
         const description = ref('')
@@ -39,9 +43,12 @@ export default {
 
         const types = ["image/png", "image/jpeg"]
 
-        const handleSubmit = () => {
+        const handleSubmit = async () => {
             if (file.value){
-                console.log(title.value, description.value, location.value, file.value)
+
+                await uploadImage(file.value)
+
+                console.log(title.value, description.value, location.value, file.value, 'image uploaded')
             }
         }
 
