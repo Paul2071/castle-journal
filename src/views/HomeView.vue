@@ -1,21 +1,25 @@
 <template>
   <div class="home">
-   <p>Homepage</p>
+    <div v-if="error" class="error">Could not get your posts...</div>
+    <div v-if="documents" >
+      <di v-for="doc in documents" :key="doc.id"> {{ doc.title }}</di>
+    </div>
   </div>
   
 </template>
 
 <script>
-import getPosts from '../composables/getPosts';
+import getCollections from '../composables/getCollections';
 
 export default {
   name: 'HomeView',
   setup() {
-  const {posts, error, load} =  getPosts()
+  const { error, documents} =  getCollections('castlejournal')
 
-  load()
 
-  return { posts, error }
+  
+
+  return { documents, error }
   }
 }
 </script>

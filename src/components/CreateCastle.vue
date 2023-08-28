@@ -12,7 +12,8 @@
 
         <div class="error"> {{ fileError }}</div>
 
-        <button>Create</button>
+        <button v-if="!isPending">Create</button>
+        <button v-if="isPending" disabled>Uploading...</button>
 
     </form>
 
@@ -45,13 +46,16 @@ export default {
         const file = ref(null)
         const fileError = ref(null)
 
+        //local ispending rather than importing from composable - will disable button so cannot be clicked agianand give user feedback something is happening
+        const isPending = ref(false)
+
         //allowed types of files
 
         const types = ["image/png", "image/jpeg"]
 
         const handleSubmit = async () => {
-            if (file.value){
-
+            if (file.value){    
+                isPending.value = true
                 await uploadImage(file.value)
                 await addDoc({
                     title: title.value,
@@ -64,7 +68,7 @@ export default {
                     castles: [],
                     createdAt: timestamp()
                 })
-
+                isPending.value = false
                 if (!error.value) {
                     console.log('castle journal added')
                 }
@@ -89,7 +93,7 @@ export default {
 
         }
 
-        return { title, location, description, file, fileError, handleSubmit, handleChange } 
+        return { title, location, description, file, fileError, isPending, handleSubmit, handleChange } 
     }
 }
 
