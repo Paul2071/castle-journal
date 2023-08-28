@@ -7,3 +7,5 @@ filePath.value = `castleimage/${user.value.uid}/${file.name}
 
 CreateCastle component
 each entry will be in 'castlejournal' document folder on firebase
+
+castleImage is URL key for each image
