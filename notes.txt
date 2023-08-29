@@ -1,6 +1,8 @@
 path: '/castle/create',
 path: '/signup'
 path: '/login'
+path: '/castle/:id',
+
 
 firebase path for storage  in useStorage()
 filePath.value = `castleimage/${user.value.uid}/${file.name}
@@ -9,3 +11,5 @@ CreateCastle component
 each entry will be in 'castlejournal' document folder on firebase
 
 castleImage is URL key for each image
+
+to check user, need to use computed property as user will change quite often - user.value.uid if user stored in a ref

@@ -10,6 +10,7 @@
             <h1> {{ singleDocument.title  }}</h1>
             <h2> {{ singleDocument.location  }}</h2>
             <p class="username"> created by {{  singleDocument.userName }}</p>
+            <button v-if="ownership" class="btn" @click="handleDelete">Delete</button>
         </div>
 
         <div class="castle-description">
@@ -24,14 +25,35 @@
 
 <script >
 import getDocument from '@/composables/getDocument';
+import getUser from '@/composables/getUser';
+import useDocument from '@/composables/useDocument';
+import useStorage from '@/composables/useStorage';
+import { useRouter } from 'vue-router'
+import { computed } from 'vue';
+
+
 
 export default {
     props: ['id'],
     setup(props) {
+        const { user } = getUser()
         const { error, singleDocument} = getDocument('castlejournal', props.id )
-        
+        const { deleteDoc } = useDocument('castlejournal', props.id)
+        const { deleteImage } = useStorage()
+        const router = useRouter()
 
-        return { error, singleDocument }
+
+        const ownership = computed(()=> {
+            return singleDocument.value && user.value && user.value.uid == singleDocument.value.userId
+        })
+
+        const handleDelete = async () => {
+            await deleteImage(singleDocument.value.filePath)
+            await deleteDoc()
+            router.push({ name: 'home'})
+        }
+
+        return { error, singleDocument, ownership, handleDelete }
     }
 }
 

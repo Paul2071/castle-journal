@@ -10,7 +10,8 @@
                 
                 <div v-if="user"> 
                     <router-link class="btn" :to="{ name: 'createcastle' }"> Add Castle Visit</router-link>
-                    <button @click="handleClick" class="btn" :to="{  name: 'login'}"> Logout </button>
+                    <button @click="handleClick" class="btn" :to="{  name: 'login'}">  Logout </button>
+                    <div class="btn"> Logged in as "{{ user.displayName}}"</div>
                 </div>
                 <div v-else>
 
