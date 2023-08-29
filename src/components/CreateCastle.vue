@@ -27,6 +27,8 @@ import useStorage from '../composables/useStorage'
 import useCollection from '../composables/useCollection'
 import getUser from '../composables/getUser'
 import { timestamp } from '../firebase/config'
+import { useRouter } from 'vue-router'
+import router from '@/router'
 
 
 export default {
@@ -38,6 +40,7 @@ export default {
         const { error, addDoc } = useCollection('castlejournal')
         //composable that provides the user and ensures useCollection goes to the right user
         const { user } = getUser()
+        const router = useRouter()
 
         //refs for form at /castle/create, these values uploaded as object to firebase
         const title = ref('')
@@ -57,7 +60,7 @@ export default {
             if (file.value){    
                 isPending.value = true
                 await uploadImage(file.value)
-                await addDoc({
+              const res = await addDoc({
                     title: title.value,
                     location: location.value,
                     description: description.value,
@@ -70,6 +73,7 @@ export default {
                 })
                 isPending.value = false
                 if (!error.value) {
+                    router.push({ name: 'castledetails', params: { id: res.id }})
                     console.log('castle journal added')
                 }
 

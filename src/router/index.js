@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Login from '../views/auth/Login.vue'
 import Signup from '../views/auth/Signup.vue'
 import CreateCastle from '../components/CreateCastle.vue'
+import CastleDetails from '../components/CastleDetails.vue'
 
 //route guards to make sure user is logged import 
 
@@ -39,6 +40,13 @@ const routes = [
     name: 'createcastle',
     component: CreateCastle,
     beforeEnter: requireAuth
+  },
+  {
+    path: '/castle/:id',
+    name: 'castledetails',
+    component: CastleDetails,
+    beforeEnter: requireAuth,
+    props: true
   }
   
 ]
