@@ -6,6 +6,8 @@
       </div>
       <div class="info">
         <h3> {{ journal.title }}</h3>
+        <h3> {{ journal.location }}</h3>
+        <h3> {{ journal.description }}</h3>
         <p> Created by {{  journal.userName }}</p>
       </div>
     </div>
@@ -29,17 +31,16 @@ export default {
     transition: all ease 0.2s;
 }
 .single:hover {
-    box-shadow: 1px 2px 3px rgba(50, 50, 50, 50,);
     border-color: black;
-    transform: scale(1.02);
     border-style: ridge;
+    transform: scale(1.02);
     transition: all ease 0.2s;
     cursor: pointer;
     
 }
 .thumbnail {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 150px;
+    max-height: 150px;
     overflow: hidden;
     border-radius: 10px;
 }

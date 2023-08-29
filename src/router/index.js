@@ -4,11 +4,25 @@ import Login from '../views/auth/Login.vue'
 import Signup from '../views/auth/Signup.vue'
 import CreateCastle from '../components/CreateCastle.vue'
 
+//route guards to make sure user is logged import 
+
+import { projectAuth } from '@/firebase/config'
+
+const requireAuth = (to, from, next) => {
+  let user = projectAuth.currentUser
+  if (!user) {
+      next({ name: 'login'})
+  } else {
+    next()
+  }
+}
+
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    beforeEnter: requireAuth
   },
   {
     path: '/login',
@@ -24,6 +38,7 @@ const routes = [
     path: '/castle/create',
     name: 'createcastle',
     component: CreateCastle,
+    beforeEnter: requireAuth
   }
   
 ]
