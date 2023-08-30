@@ -4,6 +4,7 @@ import Login from '../views/auth/Login.vue'
 import Signup from '../views/auth/Signup.vue'
 import CreateCastle from '../components/CreateCastle.vue'
 import CastleDetails from '../components/CastleDetails.vue'
+import UserCastles from '../components/UserCastles.vue'
 
 //route guards to make sure user is logged import 
 
@@ -47,6 +48,13 @@ const routes = [
     component: CastleDetails,
     beforeEnter: requireAuth,
     props: true
+  },
+  {
+    path: '/castle/user',
+    name: 'castleuser',
+    component: UserCastles,
+    beforeEnter: requireAuth
+    
   }
   
 ]

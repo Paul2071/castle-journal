@@ -14,11 +14,13 @@
 
 import { ref } from 'vue'
 import useSignup from '../../composables/useSignup'
+import { useRouter } from 'vue-router'
 
 export default {
     setup () {
 
         const { error, signup, isPending } = useSignup()
+        const router = useRouter()
 
         const email = ref('')
         const password = ref('')
@@ -28,7 +30,7 @@ export default {
             const res = await signup(email.value, password.value, displayName.value)
 
             if(!error.value) {
-                console.log("signup successful")
+                router.push({name:'castleuser'})
             }
         }
 
