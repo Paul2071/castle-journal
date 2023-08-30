@@ -5,6 +5,7 @@
             
             <h1><router-link :to=" {name: 'home'}">Castle Journal</router-link></h1>
             
+            
             <div class="links">
 
                 

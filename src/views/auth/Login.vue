@@ -6,6 +6,7 @@
     <div v-if="error" class="error"> {{ error }}</div>
     <button v-if="!isPending">Log in</button>
     <button v-if="isPending">Loading...</button>
+    <p> Login with example@example.com // example12 </p>
 </form>
 </template>
 

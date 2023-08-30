@@ -8,12 +8,13 @@
         </div>
         <div class="info">
           <h3> {{ journal.title }}</h3>
-          <h3> {{ journal.location }}</h3>
-          <h3> {{ journal.description }}</h3>
+          <h3> {{ journal.location }}</h3>          
           <p> Created by {{  journal.userName }}</p>
         </div>
+        
       </div>
   </router-link>
+ 
   </div>
 </template>
 
