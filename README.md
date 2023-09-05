@@ -1,5 +1,15 @@
 # castle-journal
 
+This web app is deployed at the following https://vue-firebase-backend-22e0c.firebaseapp.com/
+
+I had a lot of fun making this and will keep supporting it and possibly adding features in the future:
+
+### Roadmap
+
+- Mobile view needs looking at. Responsiveness etc.
+- Overview of the CSS, font sizes, colour scheme in particular
+- Images seem to be a little off, they dont focus on the centre of the image
+
 ## Project setup
 ```
 npm install

@@ -6,8 +6,13 @@
     <div v-if="error" class="error"> {{ error }}</div>
     <button v-if="!isPending">Log in</button>
     <button v-if="isPending">Loading...</button>
-    <p> Login with example@example.com // example12 </p>
 </form>
+<div class="info">
+<h4> To test this webpage out you can use the below details </h4>
+<p> email: example@example.com </p>
+<p> password: example12 </p>
+<h4> or signup using the signup button in the top right </h4>
+</div>
 </template>
 
 <script >
@@ -41,4 +46,16 @@ export default {
 </script>
 
 <style >
+
+.info{
+
+          max-width: 400px;
+          margin: 0 auto;
+          margin-top: 20px;
+          padding: 30px;
+          border-radius: 8px;
+          box-shadow: 1px 2px 3px rgba(50,50,0.05);
+          border: 1px solid var(--secondary);
+          background: white;
+}
 </style>
