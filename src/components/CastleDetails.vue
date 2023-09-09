@@ -79,8 +79,8 @@ export default {
     left: 0;
     min-width: 100%;
     min-height: 100%;
-    max-width: 200%;
-    max-height: 200%
+    max-width: 100%;
+    max-height: 125%
 }
 .castle-info {
     text-align: center;
