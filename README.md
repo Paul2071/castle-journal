@@ -8,9 +8,11 @@ I had a lot of fun making this and will keep supporting it and possibly adding f
 
 - Mobile view needs looking at. Responsiveness etc.
 - Overview of the CSS, font sizes, colour scheme in particular
-- Images seem to be a little off, they dont focus on the centre of the image
+- ~~ Images seem to be a little off, they dont focus on the centre of the image ~~
 - pagination 
 - search function
+- leave comments
+- star review?
 
 ## Project setup
 ```
