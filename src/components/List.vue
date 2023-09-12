@@ -1,4 +1,5 @@
 <template>
+  <div class="grid-container">
   <div v-for="journal in castlejournal" :key="journal.id">
 
     <router-link :to="{ name: 'castledetails', params: {id: journal.id} }">
@@ -13,7 +14,8 @@
         </div>
         
       </div>
-  </router-link>
+    </router-link>
+  </div>
  
   </div>
 </template>
@@ -24,6 +26,14 @@ export default {
 };
 </script>
 <style scoped >
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 50px;
+  padding: 10px;
+}
 
 .single {
     display: flex;

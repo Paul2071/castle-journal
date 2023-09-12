@@ -1,6 +1,8 @@
+<!-- This component is when a user clicks on an image to see just that entry -->
 <template>
        <div v-if="error" class="error"> {{ error }} </div>
      
+      
     <div v-if="singleDocument" class="castle-details"> 
         
         <div class="castle-info">
