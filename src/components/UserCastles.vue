@@ -1,12 +1,12 @@
 <template>
     
     <div class="user-entries">
+        <router-link class="btn" :to=" {name: 'home'}">Click to see all user entries</router-link>
+    </div>
        
         <div v-if="castles">       
             <List :castlejournal="castles" />
         </div>
-        <router-link class="btn" :to=" {name: 'home'}">Click to see all user entries</router-link>
-    </div>
 </template>
 
 <script >

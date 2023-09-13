@@ -1,23 +1,32 @@
 <!-- This component is when a user clicks on an image to see just that entry -->
+
 <template>
+    
        <div v-if="error" class="error"> {{ error }} </div>
      
       
     <div v-if="singleDocument" class="castle-details"> 
         
         <div class="castle-info">
+
             <div class="castle-image">
                 <img :src="singleDocument.castleImage">
             </div>
-            <h1> {{ singleDocument.title  }}</h1>
-            <h2> {{ singleDocument.location  }}</h2>
-            <p class="username"> created by {{  singleDocument.userName }}</p>
-            <button v-if="ownership" class="btn" @click="handleDelete">Delete</button>
+
+            <div class="castle-metadata">
+                <h1> {{ singleDocument.title  }}</h1>
+                <h2> {{ singleDocument.location  }}</h2>
+                <p class="username"> created by {{  singleDocument.userName }}</p>
+
+            </div>
         </div>
 
         <div class="castle-description">
              <h3> {{ singleDocument.description  }}</h3>
+                <button v-if="ownership" class="btn" @click="handleDelete">Delete</button>
+
          </div>
+
     </div>
 
 
@@ -63,27 +72,21 @@ export default {
 </script>
 
 <style >
-.castle-details{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+ 
+/* css */
+
+.castle-details{    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.castle-image {
-    overflow: hidden;
-    border-radius: 20px;
-    position: relative;
-    padding: 160px;
-}
+
 .castle-image img {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    max-width: 100%;
-    max-height: 125%
-}
+   border-radius: 10px;
+   max-width: 100%;
+   max-height: 300px;
+} 
+
 .castle-info {
     text-align: center;
 }
@@ -99,7 +102,10 @@ export default {
     color: #999
 }
 .castle-description {
-    text-align: left;
+    text-align: justify;
+    margin: auto;
+    padding: 10px;
+    max-width: 400px;
 }
 
 

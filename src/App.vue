@@ -18,8 +18,7 @@ export default {
 
 <style>
 .content {
-  margin: 0 auto;
-  
+  margin: 0 auto;  
   padding: 0 20px;
 }
 </style>
