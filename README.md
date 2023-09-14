@@ -13,6 +13,8 @@ I had a lot of fun making this and will keep supporting it and possibly adding f
 - search function
 - leave comments
 - star review?
+- tests
+- accessibility - keyboard navigation, alt text?
 
 ## Project setup
 ```
