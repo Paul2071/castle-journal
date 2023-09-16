@@ -77,6 +77,7 @@ nav .links {
 nav .links a, button {
     margin-left: 16px;
     font-size: 14px;
+    margin: 10px;
 }
 nav img {
     max-height: 60px
